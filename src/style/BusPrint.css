@@ -1,0 +1,6 @@
+#printDiv {
+  display: flex;
+}
+#printDiv div {
+  margin: 30px;
+}
