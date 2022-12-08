@@ -5,22 +5,21 @@ import axios from 'axios';
 
 function CompleteBus() {
     const dummy = ["금오공과대학교_종점","거상빌딩","4공단입구","삼구아파트","옥계태백타운"];
-    const [selectOp,setSelectOp] = useState();
-    const handleChange = ({ target: { value } }) => setSelectOp(value);
+    const [selectStop,SetselectStop] = useState();
+    const handleChange = ({ target: { value } }) => SetselectStop(value);
     const [quit,setQuit] = useState(false);
     const handleSubmit = (event)=>{
     event.preventDefault();
-        console.log(selectOp);
         setTimeout(()=>{
             setQuit(true);
         },5000)
-        localStorage.setItem('selectOp',selectOp);
-        axios.post('http://localhost:5000/',{
-            busStop:selectOp,
+        localStorage.setItem('selectStop',selectStop);
+        axios.post('http://34.82.108.106:5000/stop',{
+            busStop:selectStop,
+            buzzerBool:1,
         }).then((res)=>{
             console.log(res);
-            
-            localStorage.setItem('selectStop',selectOp);
+            localStorage.setItem('selectStop',selectStop);
         }).catch((err)=>{
              console.log(err);
         })

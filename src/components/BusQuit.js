@@ -18,6 +18,14 @@ const BusQuit = ({destData,destTime}) => {
                 console.log((selectOp));
                 alert('버스탑승이 확인되었습니다.');
                 setPassByBus(true);
+                axios.post('http://34.82.108.106:5000/riding',{
+                    //bus:selectOp,
+                    riding:1,
+                }).then((res)=>{
+                    console.log(res);
+                }).catch((err)=>{
+                    console.log(err);
+                })
             }
             else{
                 alert('버스 탑승이 확인되지 않았습니다.');

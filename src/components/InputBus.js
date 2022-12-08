@@ -13,7 +13,8 @@ function InputBus({destData}) {
         console.log(selectOp);
         alert(`탑승하실 버스는 ${selectOp}번 버스 입니다.`);
         localStorage.setItem('selectOp',selectOp);
-        axios.post('http://localhost:5000/',{
+        axios.post('http://34.82.108.106:5000/',{
+            //bus:selectOp,
             bus:selectOp,
         }).then((res)=>{
             console.log(res);
